@@ -7,13 +7,11 @@
 
 void main()
 {
-  int ch;
+  int16_t ch;
   FILE *fp = fopen("input.txt", "r");
   uint16_t coordinates[SIZE][SIZE] = {0};
-  int line_coordinates[4] = {0};
-  int number_index = 0;
-  int in_number = 0;
-  int debug_linenumber = 0;
+  uint16_t line_coordinates[4] = {0};
+  uint16_t number_index = 0;
   while ((ch = fgetc(fp)) != EOF)
   {
     if (ch != '\n' && ch != '-' && ch != ' ' && ch != ',' && ch != '>')
@@ -45,16 +43,15 @@ void main()
         }
       }
       memset(line_coordinates, 0, sizeof(line_coordinates));
-
       number_index = 0;
     }
   }
   int count = 0;
-  for (int k = 0; k < SIZE; k++)
+  for (uint16_t i = 0; i < SIZE; i++)
   {
-    for (int b = 0; b < SIZE; b++)
+    for (uint16_t j = 0; j < SIZE; j++)
     {
-      if (coordinates[k][b] > 1) { count++; }
+      if (coordinates[i][j] > 1) { count++; }
     }
   }
   printf("%d", count);
