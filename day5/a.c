@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 #define ASCII_OFFSET 48
 #define SIZE 990
 
@@ -43,10 +44,8 @@ void main()
           }
         }
       }
-      for (int i = 0; i < 4; i++)
-      {
-        line_coordinates[i] = 0;
-      }
+      memset(line_coordinates, 0, sizeof(line_coordinates));
+
       number_index = 0;
     }
   }
